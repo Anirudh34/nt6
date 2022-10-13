@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Product Name: <%= product.name %></h1>
+    <h2>Product Price: <%= product.price %></h2>
+    <h2>Product seller: <%= product.uname %></h2>
+    <h2>product rating: <%= product.rating %></h2>
+    <form action="/product/<%= product._id %>?_method=DELETE" method="POST">
+      <button>Delete</button>
+    </form>
+    <p><a href="/home">All products</a></p>
+
+    <h1>Reviews</h1>
+    <hr />
+    <% for (review of reviews) {%>
+    <h5><%= review.name %></h5>
+    <h4><%= review.rev %></h4>
+    <h6>rating = <%= review.rating %> star</h6>
+    <% if(reviews.length!= 0){ %> <% if(review.name==user.name) {%>
+    <form action="/review/<%=review._id%>/del?_method=DELETE" method="POST">
+      <button>Delete</button>
+    </form>
+
+    <form action="/review/<%=review._id%>/edit?_method=PUT" method="POST">
+      <div>
+        <label for="rev">edited review: </label>
+        <input type="text" id="rev" name="review[rev]" />
+      </div>
+      <button>Edit</button>
+    </form>
+    <% } %> <% } %>
+    <hr />
+    <% } %>
+    <h1>Add review</h1>
+    <form action="/review/<%=product._id %> " method="POST">
+      <!-- <div>
+         <label for="name">Name: </label>
+        <input type="text" id="name" name="review[name]" /> 
+      </div> -->
+      <div>
+        <label for="rev">your review: </label>
+        <input type="text" id="rev" name="review[rev]" />
+      </div>
+
+      <!-- <label class="form-label" for="rating">Rating</label>
+    <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating"> -->
+
+      <fieldset class="starability-basic">
+        <input
+          type="radio"
+          id="no-rate"
+          class="input-no-rate"
+          name="review[rating]"
+          value="1"
+          checked
+          aria-label="No rating."
+        />
+        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

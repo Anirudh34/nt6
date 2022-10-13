@@ -1,0 +1,50 @@
+/* .addtocart {
+
+    box-sizing: 2px;
+    font-size: 3px;
+    display: flex;
+    align-items: center;
+} */
+#textbox{
+    height: auto;
+    display: flex;
+    /* align-items: stretch; */
+    /* align-content: stretch; */
+    position: relative;
+    margin:100px;
+    border: 1px solid crimson;
+}
+.productbox{
+    
+    
+}
+#textbox .infoimg{
+    float: left;
+    width: 50%;
+    border: 2px solid gray;
+    
+    /* padding: 10px; */
+    background: url('https://cdn1.smartprix.com/rx-iM2Ri8GhD-w280-h280/apple-iphone-13-pro.jpg');
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: auto;
+    max-block-size: 300px;
+      /* padding: auto; */
+    min-height: 100%;
+    
+}
+.buttonarr{
+    float: bottom;
+    position:absolute;
+    /* flex-direction: bo; */
+    margin: auto;
+}
+#textbox .infocontent{
+    float: right;
+    width: 50%;
+    height: 100%;
+
+    padding: 50px 30px;
+    overflow: hidden;
+}
